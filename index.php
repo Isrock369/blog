@@ -422,16 +422,16 @@ textarea.form-control { resize: vertical; min-height: 80px; }
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Nama Depan <span class="req">*</span></label>
-          <input type="text" class="form-control" id="tp-nama-depan" placeholder="Ahmad">
+          <input type="text" class="form-control" id="tp-nama-depan" placeholder="Nama depan...">
         </div>
         <div class="form-group">
           <label class="form-label">Nama Belakang <span class="req">*</span></label>
-          <input type="text" class="form-control" id="tp-nama-belakang" placeholder="Fauzi">
+          <input type="text" class="form-control" id="tp-nama-belakang" placeholder="Nama belakang...">
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">Username <span class="req">*</span></label>
-        <input type="text" class="form-control" id="tp-username" placeholder="ahmad_f">
+        <input type="text" class="form-control" id="tp-username" placeholder="Username...">
       </div>
       <div class="form-group">
         <label class="form-label">Password <span class="req">*</span></label>
