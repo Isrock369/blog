@@ -4,8 +4,8 @@
 > Dosen: A'la Syauqi, M.Kom.
 
 ---
-Nama: Moh. Isro' Ridzaul Karim
-NIM: 240605110231
+## Nama: Moh. Isro' Ridzaul Karim
+## NIM: 240605110231
 ## Deskripsi
 
 Aplikasi web berbasis PHP untuk mengelola data penulis, artikel, dan kategori artikel secara lengkap. Seluruh operasi CRUD berjalan secara **asynchronous** menggunakan **Fetch API** tanpa reload halaman.
