@@ -145,4 +145,4 @@ Nama database: `blog`
 ## Demo
 
 - 🎥 **Video Demo:** [Link YouTube](#)
-- 💻 **Repository:** [[Link GitHub]](https://github.com/Isrock369/blog.git)(#)
+- 💻 **Repository:** https://github.com/Isrock369/blog(#)
