@@ -19,7 +19,6 @@ if (!$id || !$id_penulis || !$id_kategori || !$judul || !$isi) {
     exit;
 }
 
-// Ambil gambar lama
 $stmtLama = $koneksi->prepare("SELECT gambar FROM artikel WHERE id = ?");
 $stmtLama->bind_param('i', $id);
 $stmtLama->execute();
@@ -33,7 +32,7 @@ if (!$dataLama) {
 
 $namaGambar = $dataLama['gambar'];
 
-// Proses gambar baru jika ada
+
 if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] !== UPLOAD_ERR_NO_FILE) {
     $validasi = validasiGambar($_FILES['gambar']);
     if (!$validasi['ok']) {

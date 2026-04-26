@@ -14,7 +14,6 @@ if (!$id) {
     exit;
 }
 
-// Ambil nama gambar sebelum dihapus
 $stmtGambar = $koneksi->prepare("SELECT gambar FROM artikel WHERE id = ?");
 $stmtGambar->bind_param('i', $id);
 $stmtGambar->execute();

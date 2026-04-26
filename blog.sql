@@ -1,12 +1,12 @@
--- Membuat database
+
 CREATE DATABASE IF NOT EXISTS db_blog CHARACTER
 SET
   utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Menggunakan database
+
 USE db_blog;
 
--- Membuat tabel penulis
+
 CREATE TABLE
   penulis (
     id INT NOT NULL AUTO_INCREMENT,
@@ -21,7 +21,7 @@ CREATE TABLE
 SET
   utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Membuat tabel kategori_artikel
+
 CREATE TABLE
   kategori_artikel (
     id INT NOT NULL AUTO_INCREMENT,
@@ -33,7 +33,7 @@ CREATE TABLE
 SET
   utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Membuat tabel artikel
+
 CREATE TABLE
   artikel (
     id INT NOT NULL AUTO_INCREMENT,

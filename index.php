@@ -1,6 +1,4 @@
 <?php
-// index.php - Halaman Utama Sistem Manajemen Blog (CMS)
-// UTS Pemrograman Web | Dosen: A'la Syauqi, M.Kom.
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -9,15 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sistem Manajemen Blog (CMS)</title>
 <style>
-/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #333; font-size: 14px; }
 a { text-decoration: none; color: inherit; }
 
-/* ── Layout ── */
 .wrapper { display: flex; flex-direction: column; min-height: 100vh; }
 
-/* Header */
 .header {
     background: #fff;
     border-bottom: 1px solid #e0e0e0;
@@ -33,10 +28,8 @@ a { text-decoration: none; color: inherit; }
 .header h1 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
 .header small { font-size: 12px; color: #888; }
 
-/* Body layout */
 .body-layout { display: flex; flex: 1; }
 
-/* Sidebar */
 .sidebar {
     width: 210px;
     background: #fff;
@@ -73,14 +66,11 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; }
 
-/* Content */
 .content { flex: 1; padding: 24px; overflow-x: auto; }
 
-/* Section */
 .section { display: none; }
 .section.active { display: block; }
 
-/* Card */
 .card {
     background: #fff;
     border-radius: 8px;
@@ -97,7 +87,6 @@ a { text-decoration: none; color: inherit; }
 }
 .card-header h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
 
-/* Table */
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; }
 thead { background: #f8f9fb; }
@@ -121,7 +110,6 @@ tbody td {
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: #fafbff; }
 
-/* Foto thumbnail */
 .thumb {
     width: 44px;
     height: 44px;
@@ -131,7 +119,6 @@ tbody tr:hover { background: #fafbff; }
     background: #f0f0f0;
 }
 
-/* Kategori badge */
 .badge-kategori {
     display: inline-block;
     padding: 3px 10px;
@@ -142,7 +129,6 @@ tbody tr:hover { background: #fafbff; }
     color: #1d4ed8;
 }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -169,13 +155,10 @@ tbody tr:hover { background: #fafbff; }
 .btn-secondary:hover { background: #d1d5db; }
 .btn-sm { padding: 5px 10px; font-size: 12px; }
 
-/* Loading state */
 .loading-row td { text-align: center; padding: 32px; color: #aaa; }
 
-/* Empty state */
 .empty-row td { text-align: center; padding: 40px; color: #bbb; }
 
-/* ── MODAL ── */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -229,7 +212,6 @@ tbody tr:hover { background: #fafbff; }
     gap: 8px;
 }
 
-/* Confirm modal */
 .confirm-body {
     text-align: center;
     padding: 28px 22px 20px;
@@ -241,7 +223,6 @@ tbody tr:hover { background: #fafbff; }
 .confirm-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
 .confirm-body p  { font-size: 13px; color: #888; }
 
-/* Form */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-group { margin-bottom: 14px; }
 .form-group:last-child { margin-bottom: 0; }
@@ -272,7 +253,6 @@ tbody tr:hover { background: #fafbff; }
 textarea.form-control { resize: vertical; min-height: 80px; }
 .form-hint { font-size: 11px; color: #aaa; margin-top: 4px; }
 
-/* Foto preview */
 .foto-preview {
     width: 56px;
     height: 56px;
@@ -283,7 +263,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     display: block;
 }
 
-/* Alert */
 .alert {
     padding: 10px 14px;
     border-radius: 6px;
@@ -295,7 +274,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
 .alert-danger  { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
 .alert-success { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
 
-/* Toast */
 .toast-container {
     position: fixed;
     bottom: 24px;
@@ -322,10 +300,8 @@ textarea.form-control { resize: vertical; min-height: 80px; }
 .toast.toast-error   { background: #dc2626; }
 @keyframes toastIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-/* Password mask */
 .pass-mask { letter-spacing: 2px; font-family: monospace; color: #888; }
 
-/* Spinner */
 .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin .6s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
@@ -333,7 +309,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
 <body>
 <div class="wrapper">
 
-  <!-- ── HEADER ────────────────────────────────────────────── -->
   <header class="header">
     <span class="header-icon">📰</span>
     <div>
@@ -343,8 +318,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
   </header>
 
   <div class="body-layout">
-
-    <!-- ── SIDEBAR ────────────────────────────────────────── -->
     <aside class="sidebar">
       <div class="sidebar-label">Menu Utama</div>
       <div class="nav-item active" data-section="penulis">
@@ -357,11 +330,7 @@ textarea.form-control { resize: vertical; min-height: 80px; }
         <span class="nav-icon">🗂️</span> Kelola Kategori
       </div>
     </aside>
-
-    <!-- ── MAIN CONTENT ───────────────────────────────────── -->
     <main class="content">
-
-      <!-- ═══════ SECTION: PENULIS ═══════ -->
       <section id="section-penulis" class="section active">
         <div class="card">
           <div class="card-header">
@@ -388,8 +357,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
           </div>
         </div>
       </section>
-
-      <!-- ═══════ SECTION: ARTIKEL ═══════ -->
       <section id="section-artikel" class="section">
         <div class="card">
           <div class="card-header">
@@ -417,8 +384,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
           </div>
         </div>
       </section>
-
-      <!-- ═══════ SECTION: KATEGORI ═══════ -->
       <section id="section-kategori" class="section">
         <div class="card">
           <div class="card-header">
@@ -443,14 +408,9 @@ textarea.form-control { resize: vertical; min-height: 80px; }
           </div>
         </div>
       </section>
-
     </main>
   </div>
 </div><!-- .wrapper -->
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: TAMBAH PENULIS
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-tambah-penulis">
   <div class="modal">
     <div class="modal-header">
@@ -490,10 +450,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: EDIT PENULIS
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-edit-penulis">
   <div class="modal">
     <div class="modal-header">
@@ -534,10 +490,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: TAMBAH ARTIKEL
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-tambah-artikel">
   <div class="modal modal-lg">
     <div class="modal-header">
@@ -577,10 +529,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: EDIT ARTIKEL
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-edit-artikel">
   <div class="modal modal-lg">
     <div class="modal-header">
@@ -621,10 +569,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: TAMBAH KATEGORI
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-tambah-kategori">
   <div class="modal">
     <div class="modal-header">
@@ -648,10 +592,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: EDIT KATEGORI
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-edit-kategori">
   <div class="modal">
     <div class="modal-header">
@@ -676,10 +616,6 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════════════════
-     MODAL: KONFIRMASI HAPUS
-══════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-hapus">
   <div class="modal modal-sm">
     <div class="confirm-body">
@@ -693,17 +629,11 @@ textarea.form-control { resize: vertical; min-height: 80px; }
     </div>
   </div>
 </div>
-
-<!-- Toast container -->
 <div class="toast-container" id="toast-container"></div>
 
-<!-- ══════════════════════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
-// ─── Navigasi ─────────────────────────────────────────────────────────
 document.querySelectorAll('.nav-item[data-section]').forEach(el => {
     el.addEventListener('click', () => {
         const target = el.dataset.section;
@@ -716,15 +646,12 @@ document.querySelectorAll('.nav-item[data-section]').forEach(el => {
         if (target === 'kategori') muatKategori();
     });
 });
-
-// ─── Tutup modal klik overlay ──────────────────────────────────────────
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', e => {
         if (e.target === overlay) tutupModal(overlay.id);
     });
 });
 
-// ─── Helpers ──────────────────────────────────────────────────────────
 function bukaModal(id)  { document.getElementById(id).classList.add('show'); }
 function tutupModal(id) { document.getElementById(id).classList.remove('show'); }
 
@@ -778,9 +705,6 @@ function esc(str) {
     return d.innerHTML;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// PENULIS
-// ═══════════════════════════════════════════════════════════════
 
 async function muatPenulis() {
     document.getElementById('tbody-penulis').innerHTML =
@@ -907,9 +831,6 @@ async function updatePenulis() {
     }
 }
 
-// ═══════════════════════════════════════════════════════════════
-// ARTIKEL
-// ═══════════════════════════════════════════════════════════════
 
 async function muatArtikel() {
     document.getElementById('tbody-artikel').innerHTML =
@@ -1059,10 +980,6 @@ async function updateArtikel() {
     }
 }
 
-// ═══════════════════════════════════════════════════════════════
-// KATEGORI
-// ═══════════════════════════════════════════════════════════════
-
 async function muatKategori() {
     document.getElementById('tbody-kategori').innerHTML =
         '<tr class="loading-row"><td colspan="3">⏳ Memuat data...</td></tr>';
@@ -1151,10 +1068,6 @@ async function updateKategori() {
         tampilAlert('alert-edit-kategori', json.pesan);
     }
 }
-
-// ═══════════════════════════════════════════════════════════════
-// HAPUS (Universal)
-// ═══════════════════════════════════════════════════════════════
 
 function konfirmasiHapus(jenis, id) {
     bukaModal('modal-hapus');

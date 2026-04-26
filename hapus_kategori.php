@@ -13,7 +13,7 @@ if (!$id) {
     exit;
 }
 
-// Cek apakah kategori masih digunakan artikel
+
 $stmtCek = $koneksi->prepare("SELECT COUNT(*) AS total FROM artikel WHERE id_kategori = ?");
 $stmtCek->bind_param('i', $id);
 $stmtCek->execute();

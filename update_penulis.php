@@ -19,7 +19,6 @@ if (!$id || !$nama_depan || !$nama_belakang || !$user_name) {
     exit;
 }
 
-// Ambil data lama untuk mendapatkan foto saat ini
 $stmtLama = $koneksi->prepare("SELECT foto FROM penulis WHERE id = ?");
 $stmtLama->bind_param('i', $id);
 $stmtLama->execute();
@@ -32,7 +31,6 @@ if (!$dataLama) {
     exit;
 }
 
-// Proses foto (opsional saat edit)
 $namaFoto = $dataLama['foto'];
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
     $validasi = validasiGambar($_FILES['foto']);
@@ -44,7 +42,6 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
     $namaFoto = uploadGambar($_FILES['foto'], 'uploads_penulis');
 }
 
-// Update password hanya jika diisi
 if (!empty($password_baru)) {
     $password_hash = password_hash($password_baru, PASSWORD_BCRYPT);
     $stmt = $koneksi->prepare(

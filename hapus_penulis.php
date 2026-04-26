@@ -14,7 +14,7 @@ if (!$id) {
     exit;
 }
 
-// Cek apakah penulis masih memiliki artikel
+
 $stmtCek = $koneksi->prepare("SELECT COUNT(*) AS total FROM artikel WHERE id_penulis = ?");
 $stmtCek->bind_param('i', $id);
 $stmtCek->execute();
@@ -26,7 +26,7 @@ if ($cek['total'] > 0) {
     exit;
 }
 
-// Ambil nama foto sebelum dihapus
+
 $stmtFoto = $koneksi->prepare("SELECT foto FROM penulis WHERE id = ?");
 $stmtFoto->bind_param('i', $id);
 $stmtFoto->execute();

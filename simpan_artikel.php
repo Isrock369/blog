@@ -18,7 +18,6 @@ if (!$id_penulis || !$id_kategori || !$judul || !$isi) {
     exit;
 }
 
-// Gambar wajib diunggah untuk artikel baru
 if (!isset($_FILES['gambar']) || $_FILES['gambar']['error'] === UPLOAD_ERR_NO_FILE) {
     echo json_encode(['status' => 'error', 'pesan' => 'Gambar artikel wajib diunggah.']);
     exit;

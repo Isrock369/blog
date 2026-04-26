@@ -1,7 +1,7 @@
 <?php
 function validasiGambar(array $file): array
 {
-    $maxSize  = 2 * 1024 * 1024; // 2 MB
+    $maxSize  = 2 * 1024 * 1024; 
     $allowed  = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 
     if ($file['error'] !== UPLOAD_ERR_OK) {
@@ -22,9 +22,6 @@ function validasiGambar(array $file): array
     return ['ok' => true, 'mime' => $mimeType];
 }
 
-/**
- * Upload file gambar ke folder tujuan, kembalikan nama file baru
- */
 function uploadGambar(array $file, string $folder): string
 {
     $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
@@ -34,9 +31,7 @@ function uploadGambar(array $file, string $folder): string
     return $namaFile;
 }
 
-/**
- * Hapus file gambar dari server (tidak hapus default.png)
- */
+
 function hapusGambar(string $namaFile, string $folder): void
 {
     if ($namaFile === 'default.png' || $namaFile === 'default_artikel.png') return;
@@ -46,9 +41,7 @@ function hapusGambar(string $namaFile, string $folder): void
     }
 }
 
-/**
- * Format tanggal Indonesia dengan timezone Asia/Jakarta
- */
+
 function formatHariTanggal(): string
 {
     date_default_timezone_set('Asia/Jakarta');

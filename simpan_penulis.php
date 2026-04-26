@@ -18,10 +18,8 @@ if (!$nama_depan || !$nama_belakang || !$user_name || !$password_raw) {
     exit;
 }
 
-// Enkripsi password dengan bcrypt
 $password_hash = password_hash($password_raw, PASSWORD_BCRYPT);
 
-// Proses foto profil
 $namaFoto = 'default.png';
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
     $validasi = validasiGambar($_FILES['foto']);
@@ -40,7 +38,6 @@ $stmt->bind_param('sssss', $nama_depan, $nama_belakang, $user_name, $password_ha
 if ($stmt->execute()) {
     echo json_encode(['status' => 'sukses', 'pesan' => 'Penulis berhasil ditambahkan.']);
 } else {
-    // Cek duplicate username
     if ($koneksi->errno === 1062) {
         echo json_encode(['status' => 'error', 'pesan' => 'Username sudah digunakan.']);
     } else {
