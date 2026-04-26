@@ -87,7 +87,7 @@ blog/
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/username/nama-repo.git](https://github.com/Isrock369/blog.git)
+git clone https://github.com/Isrock369/blog.git
 ```
 
 ### 2. Pindahkan ke htdocs XAMPP
